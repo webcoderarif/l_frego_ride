@@ -6,6 +6,8 @@ use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\Front\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Admin\FoodController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,4 +37,6 @@ Route::group(['middleware' => 'admin.auth'], function() {
     Route::get('admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::resource('categories', CategoryController::class);
+    Route::resource('restaurants', RestaurantController::class);
+    Route::resource('foods', FoodController::class);
 });

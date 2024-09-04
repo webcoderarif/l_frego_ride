@@ -34,7 +34,7 @@
 								@method('put')
 								<div class="mb-3">
 									<label for="name">Category</label>
-									<input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" value="{{ $category->name }}">
+									<input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Name" value="{{ $category->name }}" required>
 									@error('name')
 										<div class="invalid-feedback">{{ $message }}</div>
 									@enderror

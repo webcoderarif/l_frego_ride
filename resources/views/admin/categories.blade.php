@@ -58,20 +58,14 @@
 								@endforeach
 							@else
 								<tr>
-									<td colspan="3">No categories found!</td>
+									<td colspan="3" class="text-center">No categories found!</td>
 								</tr>
 							@endif
 						</tbody>
 					</table>										
 				</div>
 				<div class="card-footer clearfix">
-					<ul class="pagination pagination m-0 float-right">
-					  <li class="page-item"><a class="page-link" href="#">«</a></li>
-					  <li class="page-item"><a class="page-link" href="#">1</a></li>
-					  <li class="page-item"><a class="page-link" href="#">2</a></li>
-					  <li class="page-item"><a class="page-link" href="#">3</a></li>
-					  <li class="page-item"><a class="page-link" href="#">»</a></li>
-					</ul>
+					<div class="float-right">{{ $categories->links() }}</div>
 				</div>
 			</div>
 		</div>
