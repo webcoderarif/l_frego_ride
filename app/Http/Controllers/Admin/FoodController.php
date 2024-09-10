@@ -16,7 +16,7 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $foods = Food::orderBy('id', 'DESC')->paginate(2);
+        $foods = Food::orderBy('id', 'DESC')->paginate(5);
         return view('admin.foods', compact('foods'));
     }
 

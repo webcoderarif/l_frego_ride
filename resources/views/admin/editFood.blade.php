@@ -120,8 +120,8 @@
 										<div class="mb-3">
 				                            <label for="recommend">Recommend</label>
 				                            <select name="recommend" id="recommend" class="form-control">
-				                            	<option value="no" @selected($food->recommend == 'no')>No</option>
-				                            	<option value="yes" @selected($food->recommend == 'yes')>Yes</option>
+				                            	<option value="no" @selected($food->is_recommend == 'no')>No</option>
+				                            	<option value="yes" @selected($food->is_recommend == 'yes')>Yes</option>
 				                            </select>
 				                        </div>
 									</div>
