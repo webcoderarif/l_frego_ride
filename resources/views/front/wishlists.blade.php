@@ -21,11 +21,11 @@
                     <div class="col-sm-3" id="id_{{ $wishlist->id }}">
                         <div class="card">
                             <div class="card-body">
-                                <a href="{{ route('website.restaurant_foods', $wishlist->id) }}">
+                                <a href="{{ route('website.restaurant_foods', $wishlist->restaurant_id) }}">
                                     <img src="{{ asset('uploads/restaurants/' . $wishlist->restaurant->photo) }}" alt="Image" width="" ="100px">
                                 </a>
                                 <h5 class="my-3">
-                                    <a class="wishlist_title" href="{{ route('website.restaurant_foods', $wishlist->id) }}">{{ $wishlist->restaurant->name }}</a>
+                                    <a class="wishlist_title" href="{{ route('website.restaurant_foods', $wishlist->restaurant_id) }}">{{ $wishlist->restaurant->name }}</a>
                                 </h5>
                                 <buton type="button" class="btn btn-outline-danger btn-sm mb-0" onclick="removeFromWishlist(this, {{ $wishlist->id }})">
                                     Remove
@@ -35,13 +35,13 @@
                     </div>
                 @endforeach
             @else
-                <div class="col-12">Favourites list is empty!</div>
+                <div class="col-12 text-center">Favourites list is empty!</div>
             @endif
         </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns float-right">
-                    <a href="{{ route('website.foods') }}" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                    <a href="{{ route('website.foods') }}" class="primary-btn cart-btn">Add More</a>
                 </div>
             </div>
         </div>

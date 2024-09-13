@@ -57,7 +57,7 @@
                                         <td>{{ $food->restaurant->name }}</td>
                                         <td>
                                             @if($food->photo != NULL)
-                                                <img src="{{ asset('uploads/foods/' . $food->photo) }}" style="    width: 150px; border: 1px solid skyblue;" alt="Restaurant photo">
+                                                <img src="{{ asset('uploads/foods/' . $food->photo) }}" style="    width: 60px; border: 1px solid skyblue;" alt="Restaurant photo">
                                             @endif
                                         </td>
                                         <td>{{ $food->price }}</td>

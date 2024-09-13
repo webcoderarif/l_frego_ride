@@ -18,7 +18,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th class="shoping__product">Products</th>
+                                <th class="shoping__product">Food Name</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
@@ -66,7 +66,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="shoping__cart__btns float-right">
-                    <a href="{{ route('website.foods') }}" class="primary-btn cart-btn">CONTINUE SHOPPING</a>
+                    <a href="{{ route('website.foods') }}" class="primary-btn cart-btn">Add More</a>
                 </div>
             </div>
             <div class="col-lg-6">

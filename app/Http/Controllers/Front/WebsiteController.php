@@ -11,7 +11,8 @@ use App\Models\Restaurant;
 class WebsiteController extends Controller
 {
     public function index() {
-        return view('front.index');
+        $restaurants = Restaurant::orderBy('id', 'DESC')->get();
+        return view('front.index', compact('restaurants'));
     }
 
     public function foods() {
@@ -57,5 +58,21 @@ class WebsiteController extends Controller
         $search_foods = Food::where('name', 'like', '%'.$request->search.'%')->orderBy('id', 'DESC')->paginate(8);
         $search_keyword = $request->search;
         return view('front.search-foods', compact('categories', 'restaurants', 'latests', 'search_foods', 'search_keyword'));
+    }
+
+    public function contact() {
+        return view('front.contact');
+    }
+
+    public function termsCondition() {
+        return view('front.terms&condition');
+    }
+
+    public function privacyPolicy() {
+        return view('front.privacyPolicy');
+    }
+
+    public function returnPolicy() {
+        return view('front.returnPolicy');
     }
 }

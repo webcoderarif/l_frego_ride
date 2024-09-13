@@ -33,6 +33,10 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="checkout__input">
+                            <p>Note</p>
+                            <textarea name="note" class="form-control" id="note" placeholder="Write notes here.."></textarea>
+                        </div>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
@@ -57,17 +61,17 @@
                             <div class="checkout__input__checkbox">
                                 <label for="payment">
                                     Cash On Delivery
-                                    <input type="radio" name="payment_method" id="payment" required>
+                                    <input type="radio" name="payment_method" id="payment" value="cash" required>
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <div class="checkout__input__checkbox">
+                            {{-- <div class="checkout__input__checkbox">
                                 <label for="paypal">
                                     Online Payment
-                                    <input type="radio" name="payment_method" id="paypal" required>
+                                    <input type="radio" name="payment_method" id="paypal" value="online" required>
                                     <span class="checkmark"></span>
                                 </label>
-                            </div>
+                            </div> --}}
                             <button type="submit" class="site-btn">PLACE ORDER</button>
                         </div>
                     </div>

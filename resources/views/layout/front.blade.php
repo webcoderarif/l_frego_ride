@@ -82,7 +82,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo text-center">
-            <a href="#"><img src="{{ asset('uploads/logo.png') }}" alt="" style="height: 70px;"></a>
+            <a href="{{ route('website.index') }}"><img src="{{ asset('uploads/logo.png') }}" alt="" style="height: 70px;"></a>
         </div>
         <div class="humberger__menu__cart d-none">
             <ul>
@@ -95,9 +95,9 @@
             <ul>
                 @auth
                     <li><a href="{{ route('customer.profile') }}">Profile</a></li>
-                    <li><a href="{{ route('customer.profile') }}">Order</a></li>
+                    <li><a href="{{ route('order.index') }}">Order</a></li>
                 @endauth
-                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="{{ route('website.contact') }}">Contact</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -116,7 +116,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html"><img src="{{ asset('uploads/logo.png') }}" alt="" style="height: 50px;"></a>
+                        <a href="{{ route('website.index') }}"><img src="{{ asset('uploads/logo.png') }}" alt="" style="height: 50px;"></a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -124,9 +124,9 @@
                         <ul class="float-right">
                             @auth
                                 <li><a href="{{ route('customer.profile') }}">Profile</a></li>
-                                <li><a href="{{ route('customer.profile') }}">Order</a></li>
+                                <li><a href="{{ route('order.index') }}">Order</a></li>
                             @endauth
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="{{ route('website.contact') }}">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -134,7 +134,7 @@
                     <div class="header__cart">
                         <ul>
                             <li><a href="{{ route('wishlist.index') }}"><i class="fa fa-heart"></i> <span class="total_wishlist">{{ count($wishlists) }}</span></a></li>
-                            <li><a href="{{ route('cart.index') }}"><i class="fa fa-shopping-bag"></i> <span class="total_cart">{{ count($carts) }}</span></a></li>
+                            <li><a href="{{ route('cart.index') }}"><i class="fa fa-shopping-bag"></i> <span id="total_cart">{{ count($carts) }}</span></a></li>
                             @auth
                             <li>
                                 <a href="{{ route('account.logout') }}" class="text-dark ml-2">
@@ -170,9 +170,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="{{ route('website.index') }}">
+                                <img src="{{ asset('uploads/logo.png') }}" alt="" style="height: 70px;">
+                            </a>
                         </div>
-                        <ul>
+                        <ul class="ml-0">
                             <li>Address: 60-49 Road 11378 New York</li>
                             <li>Phone: +65 11.188.888</li>
                             <li>Email: hello@colorlib.com</li>
@@ -182,21 +184,11 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
                         <h6>Useful Links</h6>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
+                        <ul class="ml-0">
+                            <li><a href="{{ route('website.contact') }}">Contact</a></li>
+                            <li><a href="{{ route('website.terms&condition') }}">Terms and Conditions</a></li>
+                            <li><a href="{{ route('website.privacy-policy') }}">Privacy Policy</a></li>
+                            <li><a href="{{ route('website.return-policy') }}">Return Policy</a></li>
                         </ul>
                     </div>
                 </div>
@@ -271,7 +263,7 @@
                     })
 
                     if(data != 'exist') {
-                        $('.total_cart').text(parseInt($('.total_cart').text()) + 1);
+                        $('#total_cart').text(parseInt($('#total_cart').text()) + 1);
                     }
 
                     $(element).addClass('wishlist_cart_active');
@@ -350,7 +342,7 @@
 
                     if(data['status'] == 'deleted') {
                         $('#id_' + id).remove();
-                        $('.total_cart').text(parseInt($('.total_cart').text()) - 1);
+                        $('#total_cart').text(parseInt($('#total_cart').text()) - 1);
 
                         $('#sub_total').text(data['sub_total']);
                         $('#total').text(parseInt(data['sub_total']) + parseInt($('#delivery_cost').text()));
